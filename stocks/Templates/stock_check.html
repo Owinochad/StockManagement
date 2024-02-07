@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stock check</title>
+</head>
+<body>
+    {% block content %}
+        <h1>Error: not enough stock</h1>
+        <p>There is only {{ liquor_stocks }} {{ liquor }} remaining</p>
+        <button><a href="{% url 'sales' %}">ok</a></button>
+    {% endblock %}
+</body>
+</html>

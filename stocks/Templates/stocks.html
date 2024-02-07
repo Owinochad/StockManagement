@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stocks</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Stocks</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Liquor Name</th>
+                <th>Price (ksh)</th>
+                <th>Stock Quantity</th>
+                <th>Quantity Price (ksh)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop through your liquor stock data and display each row -->
+            {% for liquor in liquor_stocks %}
+                <tr>
+                    <td>{{ liquor.liquor_name }}</td>
+                    <td>{{ liquor.price }}</td>
+                    <td>{{ liquor.stock_quantity }}</td>
+                    <td>{{ liquor.quantity_price }}</td>
+                    <td>
+                        <a href="{% url 'edit_stock' id=liquor.id %}"><button>Edit Stock</button></a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <div class="center"><br>
+       <a href="{%url 'add_stock'%}"><button>Add Stock</button></a>
+       <a href="{% url 'sales' %}" ><button>Sales</button></a>
+    </div>
+</body>
+</html>
